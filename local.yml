@@ -6,3 +6,4 @@
       changed_when: False
   tasks:
     - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/spotify.yml
