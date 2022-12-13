@@ -1,0 +1,29 @@
+- name: required libraries for docker
+  become: true
+  apt:
+    name: ["curl", "ca-certificates", "gnupg", "lsb-release"]
+  tags:
+    - docker
+    - install
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags:
+    - docker
+    - install
+- name: Add Docker Repository
+  apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu kinetic stable
+        state: present
+  tags:
+    - docker
+    - install
+- name: Docker apt installation
+  become: true
+  apt:
+    update_cache: yes
+    name: ["docker-ce", "docker-ce-cli", "containerd.io", "docker-compose-plugin"]
+  tags:
+    - docker
+    - install
