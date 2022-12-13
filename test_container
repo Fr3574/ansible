@@ -1,4 +1,0 @@
-#!/usr/local/bin
-docker build -t ansible .
-docker container create --rm --name ansible-container ansible
-docker container start -i ansible-container
