@@ -1,0 +1,27 @@
+- name: Install ZSH
+  apt: name=zsh
+  tags:
+    - zsh
+    - install
+
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+  tags:
+    - zsh
+    - install
+
+- name: Check that the somefile.conf exists
+  stat:
+    path: /home/frederik/.oh-my-zsh
+  register: oh_my_stats
+  tags:
+    - zsh
+    - install
+
+- name: Oh-My-Zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  tags:
+    - zsh
+    - install
+  when: oh_my_stats.stat.exists == False
+  become_user: frederik

@@ -4,6 +4,18 @@
     - name: update repositories
       apt: update_cache=yes
       changed_when: False
+      tags:
+      - install
   tasks:
     - include_tasks: tasks/docker.yml
+      tags:
+      - install
+      - docker
     - include_tasks: tasks/spotify.yml
+      tags:
+      - install
+      - spotify
+    - include_tasks: tasks/zsh.yml
+      tags:
+      - install
+      - zsh
