@@ -5,6 +5,7 @@
   tags:
     - spotify
     - install
+
 - name: Add Spotify Repository
   apt_repository:
         repo: deb http://repository.spotify.com stable non-free
@@ -12,6 +13,7 @@
   tags:
     - spotify
     - install
+
 - name: Spotify apt installation
   become: true
   apt:
