@@ -7,6 +7,10 @@
       tags:
       - install
   tasks:
+    - include_tasks: tasks/basic-setup.yml
+      tags:
+      - install
+      - basic
     - include_tasks: tasks/docker.yml
       tags:
       - install
