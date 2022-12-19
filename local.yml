@@ -1,4 +1,7 @@
 - hosts: localhost
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   become: true
   pre_tasks:
     - name: update repositories
@@ -7,10 +10,18 @@
       tags:
       - install
   tasks:
+    - include_tasks: tasks/ssh.yml
+      tags:
+      - install
+      - ssh
     - include_tasks: tasks/basic-setup.yml
       tags:
       - install
       - basic
+    - include_tasks: tasks/git.yml
+      tags:
+      - install
+      - git
     - include_tasks: tasks/docker.yml
       tags:
       - install
@@ -27,3 +38,7 @@
       tags:
       - install
       - brave
+    - include_tasks: tasks/dotfiles.yml
+      tags:
+      - install
+      - dotfiles

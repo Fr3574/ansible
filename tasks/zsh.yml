@@ -12,7 +12,7 @@
 
 - name: Check that the somefile.conf exists
   stat:
-    path: /home/frederik/.oh-my-zsh
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
   register: oh_my_stats
   tags:
     - zsh
@@ -24,4 +24,4 @@
     - zsh
     - install
   when: oh_my_stats.stat.exists == False
-  become_user: frederik
+  become_user: "{{ lookup('env', 'USER') }}"

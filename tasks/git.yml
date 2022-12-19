@@ -1,0 +1,23 @@
+- name: Installing git
+  apt: name=git
+  tags:
+    - install
+    - git
+
+- name: Git personal setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "Fr3574@outlook.com"
+  tags:
+  - install
+  - git
+
+- name: Git personal setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Fr3574"
+  tags:
+  - install
+  - git
