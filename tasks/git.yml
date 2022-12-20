@@ -1,9 +1,3 @@
-- name: Installing git
-  apt: name=git
-  tags:
-    - install
-    - git
-
 - name: Git personal setup email
   git_config:
     name: user.email

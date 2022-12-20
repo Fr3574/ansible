@@ -1,4 +1,5 @@
 - name: Installing stow
+  become: true
   apt: name=stow
   tags:
     - install
@@ -29,7 +30,6 @@
     - dotfiles
 
 - name: Stow dotfiles
-  become_user: "{{ lookup('env', 'USER') }}"
   shell: cd {{ lookup('env', 'HOME') }}/.dotfiles && ./ubuntu
   tags:
     - install

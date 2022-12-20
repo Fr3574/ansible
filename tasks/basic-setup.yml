@@ -1,14 +1,14 @@
 - name: Install System Packages
   become: true
   apt:
-    name: ["curl", "i3", "light", "alsa-utils", "pulseaudio"]
+    name: ["curl", "i3", "light", "alsa-utils", "pulseaudio", "xinput", "git", "ca-certificates", "gnupg", "lsb-release"]
   tags:
     - install
     - basic
 
 - name: Apply i3 settings
   become: true
-  shell: chmod +s /usr/bin/light && xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput Tapping Enabled" 1
+  shell: chmod +s /usr/bin/light
   tags:
     - install
     - basic
