@@ -38,6 +38,10 @@
       tags:
       - install
       - brave
+    - include_tasks: tasks/slack.yml
+      tags:
+      - install
+      - slack
     - include_tasks: tasks/dotfiles.yml
       tags:
       - install

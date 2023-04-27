@@ -1,7 +1,7 @@
 - name: Install System Packages
   become: true
   apt:
-    name: ["curl", "i3", "light", "alsa-utils", "pulseaudio", "xinput", "git", "ca-certificates", "gnupg", "lsb-release"]
+    name: ["curl", "i3", "light", "alsa-utils", "pulseaudio", "xinput", "git", "ca-certificates", "gnupg", "lsb-release", "nvidia-driver-515", "nvidia-dkms-515"]
   tags:
     - install
     - basic

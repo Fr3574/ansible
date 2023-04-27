@@ -1,0 +1,26 @@
+- name: Download Slack deb package
+  get_url:
+    url: "https://downloads.slack-edge.com/releases/linux/4.31.155/prod/x64/slack-desktop-4.31.155-amd64.deb"
+    dest: "/tmp/slack-desktop.deb"
+    mode: 0644
+  tags:
+  - install
+  - slack
+
+- name: Install Slack deb package
+  become: true
+  apt:
+    deb: "/tmp/slack-desktop.deb"
+    state: present
+    update_cache: yes
+  tags:
+  - install
+  - slack
+
+- name: Clean up Slack deb package
+  file:
+    path: "/tmp/slack-desktop.deb"
+    state: absent
+  tags:
+  - install
+  - slack
