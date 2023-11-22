@@ -1,0 +1,26 @@
+- name: Download VS Code deb package
+  get_url:
+    url: "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+    dest: "/tmp/vscode-desktop.deb"
+    mode: 0644
+  tags:
+  - install
+  - vscode
+
+- name: Install VS Code deb package
+  become: true
+  apt:
+    deb: "/tmp/vscode-desktop.deb"
+    state: present
+    update_cache: yes
+  tags:
+  - install
+  - vscode
+
+- name: Clean up VS Code deb package
+  file:
+    path: "/tmp/vscode-desktop.deb"
+    state: absent
+  tags:
+  - install
+  - vscode

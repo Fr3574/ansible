@@ -1,4 +1,4 @@
-FROM ubuntu:kinetic
+FROM ubuntu:latest
 WORKDIR /usr/local/bin
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \

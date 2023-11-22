@@ -42,6 +42,10 @@
       tags:
       - install
       - slack
+    - include_tasks: tasks/vscode.yml
+      tags:
+      - install
+      - vscode
     - include_tasks: tasks/dotfiles.yml
       tags:
       - install
