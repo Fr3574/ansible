@@ -12,3 +12,8 @@ sudo apt-get install -y curl git software-properties-common ansible
 ```
 sudo ansible-pull -U https://github.com/Fr3574/ansible.git
 ```
+
+## Run ansible (e.g. in docker container)
+```
+ansible-playbook -t install local.yml --ask-become-pass --ask-vault-pass
+```
